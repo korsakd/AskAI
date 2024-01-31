@@ -1,0 +1,5 @@
+const API_KEY_STORAGE_KEY = 'API_KEY_STORAGE_KEY'
+
+export {
+    API_KEY_STORAGE_KEY
+}
