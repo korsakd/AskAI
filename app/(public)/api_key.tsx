@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native';
 import React, { useState } from 'react';
-import { getAPIKey, saveAPIKey } from 'src/services/apiKey';
-import { chatClient } from 'src/services/openai';
+import { saveAPIKey } from 'src/services/apiKey';
+import { router } from 'expo-router';
 
-const Dashboard = () => {
+const ApiKey = () => {
   const [key, setKey] = useState('');
 
   return (
@@ -18,8 +18,9 @@ const Dashboard = () => {
           placeholderTextColor={'grey'}
         />
         <Pressable
-          onPress={() => {
-            saveAPIKey(key);
+          onPress={async () => {
+            await saveAPIKey(key);
+            router.replace('/chat');
           }}
           style={styles.button}
         >
@@ -30,7 +31,7 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ApiKey;
 
 const styles = StyleSheet.create({
   container: {
@@ -38,8 +39,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#141414',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 60,
   },
   contentContainer: {
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },

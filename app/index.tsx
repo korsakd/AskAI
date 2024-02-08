@@ -1,11 +1,11 @@
-import { StatusBar } from 'react-native';
-import Dashboard from '../src/screens/dashboard';
+import { ActivityIndicator, View } from 'react-native';
 
-export default function App() {
+const StartPage = () => {
   return (
-    <>
-      <StatusBar barStyle={'light-content'} />
-      <Dashboard />
-    </>
+    <View style={{ flex: 1, justifyContent: 'center' }}>
+      <ActivityIndicator size='large' color='#0000ff' />
+    </View>
   );
-}
+};
+
+export default StartPage;
